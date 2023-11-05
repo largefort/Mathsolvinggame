@@ -2,6 +2,7 @@ let level = 1;
 let score = 0;
 let timer;
 let timeLeft = 30;
+let hintAvailable = true; // A hint is initially available
 
 function generateProblem() {
     const operators = ['+', '-', '*', '/'];
@@ -18,19 +19,28 @@ function generateProblem() {
             answer = num1 - num2;
             break;
         case '*':
-            num1 = Math.floor(Math.random() * 10); // Keep multiplication simpler
+            num1 = Math.floor(Math.random() * 10);
             num2 = Math.floor(Math.random() * level * 5);
             answer = num1 * num2;
             break;
         case '/':
             num1 = Math.floor(Math.random() * level * 5);
-            num2 = Math.floor(Math.random() * level * 5) + 1; // Ensure non-zero divisor
+            num2 = Math.floor(Math.random() * level * 5) + 1;
             answer = num1 / num2;
             break;
     }
 
     document.getElementById('problem').textContent = `${num1} ${operator} ${num2} = ?`;
     return answer;
+}
+
+function showHint() {
+    if (hintAvailable) {
+        hintAvailable = false; // Disable hints after use
+        const correctAnswer = generateProblem();
+        const hint = `The answer is ${correctAnswer}.`;
+        document.getElementById('feedback').textContent = hint;
+    }
 }
 
 function checkAnswer() {
@@ -51,6 +61,9 @@ function checkAnswer() {
     clearInterval(timer);
     document.getElementById('timer').textContent = 'Time Left: 30';
     timeLeft = 30;
+
+    // Enable hints for the next problem
+    hintAvailable = true;
 
     // Next problem
     generateProblem();
