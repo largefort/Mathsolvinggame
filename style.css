@@ -1,0 +1,55 @@
+/* Add your CSS styles here */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 28px;
+    color: #333;
+}
+
+#problem {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+#userAnswer {
+    padding: 10px;
+    font-size: 18px;
+}
+
+button {
+    background-color: #0077FF;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0055CC;
+}
+
+#feedback {
+    font-size: 20px;
+    color: #009900;
+}
+
+#score {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#timer {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* You can add more styles and adjust colors, fonts, and layout to your liking. */
